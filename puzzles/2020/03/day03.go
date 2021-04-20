@@ -32,7 +32,7 @@ func (d day03) Solve() (string, error) {
 // GetEncounteredTrees returns the multiplication of the encountered trees per slope pattern
 // complexity time: O(n²)
 func GetEncounteredTrees(file string, slopes [][2]int) (int, error) {
-	input, err := filereader.ExtractStringsArray(file)
+	input, err := filereader.ExtractStrings(file, "")
 	if err != nil {
 		return 0, err
 	}

@@ -8,7 +8,7 @@ import (
 )
 
 func TestDay05_retrieveMaxAndMissingSeatIds(t *testing.T) {
-	seats, err := filereader.ExtractStrings("./input-test.txt")
+	seats, err := filereader.ExtractString("./input-test.txt")
 	if err != nil {
 		fmt.Println(err)
 	}
