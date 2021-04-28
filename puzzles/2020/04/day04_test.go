@@ -16,7 +16,7 @@ func TestValidPassports(t *testing.T) {
 		{"nominal case", "./input-test.txt", 4},
 	}
 	for _, tc := range tt {
-		in, err := filereader.ExtractStrings(tc.input)
+		in, err := filereader.ExtractString(tc.input)
 		if err != nil {
 			fmt.Println(err)
 		}

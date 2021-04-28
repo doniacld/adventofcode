@@ -27,8 +27,8 @@ func ReadAndExtract(path string, f func(s string) error) error {
 	return scanner.Err()
 }
 
-// ExtractStrings returns a slice of all the lines in a file
-func ExtractStrings(path string) ([]string, error) {
+// ExtractString returns all lines in a string array format
+func ExtractString(path string) ([]string, error) {
 	var lines []string
 	err := ReadAndExtract(path, func(s string) error {
 		lines = append(lines, s)
@@ -37,7 +37,7 @@ func ExtractStrings(path string) ([]string, error) {
 	return lines, err
 }
 
-// ExtractInt reads the file line by line and returns a list of int
+// ExtractInt returns all lines in a int array format
 func ExtractInt(path string) ([]int, error) {
 	var lines []int
 	err := ReadAndExtract(path, func(s string) error {
@@ -51,11 +51,11 @@ func ExtractInt(path string) ([]int, error) {
 	return lines, err
 }
 
-// Extract all the values into an array
-func ExtractStringsArray(path string) ([][]string, error) {
+// ExtractStrings returns all lines in an array of array of string format
+func ExtractStrings(path string, separator string) ([][]string, error) {
 	chars := make([][]string, 0)
 	err := ReadAndExtract(path, func(s string) error {
-		chars = append(chars, strings.Split(s, ""))
+		chars = append(chars, strings.Split(s, separator))
 		return nil
 	})
 	return chars, err

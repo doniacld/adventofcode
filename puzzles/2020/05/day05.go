@@ -17,7 +17,7 @@ type day05 struct {
 }
 
 func (d day05) Solve() (string, error) {
-	seats, err := filereader.ExtractStrings(d.fileName)
+	seats, err := filereader.ExtractString(d.fileName)
 	if err != nil {
 		return "", err
 	}

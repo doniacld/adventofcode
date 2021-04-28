@@ -8,6 +8,7 @@ import (
 	day03 "github.com/doniacld/adventofcode/puzzles/2020/03"
 	day04 "github.com/doniacld/adventofcode/puzzles/2020/04"
 	day05 "github.com/doniacld/adventofcode/puzzles/2020/05"
+	day06 "github.com/doniacld/adventofcode/puzzles/2020/06"
 	"github.com/doniacld/adventofcode/puzzles/solver"
 	"log"
 )
@@ -17,7 +18,6 @@ const (
 	flagParamDay  = "day"
 
 	defaultYear = 2020
-	minYear     = 2020
 
 	defaultDay = 01
 	minDay     = 1
@@ -51,11 +51,13 @@ func main() {
 		s = day04.New("./puzzles/2020/04/input.txt")
 	case 5:
 		s = day05.New("./puzzles/2020/05/input.txt")
+	case 6:
+		s = day06.New("./puzzles/2020/06/input.txt")
 	}
 
 	out, err := s.Solve()
 	if err != nil {
-		log.Fatalf("SOmething wrong happened while computing day %d: %s", *day, err.Error())
+		log.Fatalf("Something wrong happened while computing day %d: %s", *day, err.Error())
 	}
 
 	fmt.Printf(">>>>>>>>>>>>>> %s <<<<<<<<<<<<<<<\n", out)
