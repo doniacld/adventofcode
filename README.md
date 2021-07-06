@@ -5,7 +5,7 @@ This is my take on the [advent of code](https://adventofcode.com/) in Go.
 You will find in this repository the resolution of problems day by day.
 In each one them, you can find the programming puzzles problem in the README. 
 
-My goal is to maintain my Go level, practice algorithms skills and obvisouly learn new stuffs!
+My goal is to maintain my Go level, practice algorithms skills and obviously learn new stuffs!
 My friends [ablqk](https://github.com/ablqk) and [floppyzedolfin](https://github.com/floppyzedolfin/) are the ones  
 that made me dive into this challenge. Also, they will be my reviewers.  
 

@@ -9,6 +9,7 @@ import (
 	day04 "github.com/doniacld/adventofcode/puzzles/2020/04"
 	day05 "github.com/doniacld/adventofcode/puzzles/2020/05"
 	day06 "github.com/doniacld/adventofcode/puzzles/2020/06"
+	day07 "github.com/doniacld/adventofcode/puzzles/2020/07"
 	"github.com/doniacld/adventofcode/puzzles/solver"
 	"log"
 )
@@ -53,6 +54,8 @@ func main() {
 		s = day05.New("./puzzles/2020/05/input.txt")
 	case 6:
 		s = day06.New("./puzzles/2020/06/input.txt")
+	case 7:
+		s = day07.New("./puzzles/2020/07/input.txt", "shiny gold")
 	}
 
 	out, err := s.Solve()
