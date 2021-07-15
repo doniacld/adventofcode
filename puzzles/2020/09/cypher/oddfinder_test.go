@@ -20,7 +20,7 @@ func TestCypher_FindOdd(t *testing.T) {
 		t.Run(tc.description, func(t *testing.T) {
 			c, err := ReadAndExtract(tc.input, tc.idxPreamble)
 			assert.NoError(t, err)
-			v := c.(tc.idxPreamble)
+			v := c.FindOdd(tc.idxPreamble)
 			assert.Equal(t, tc.output, v)
 		})
 	}

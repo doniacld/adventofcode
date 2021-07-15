@@ -19,10 +19,10 @@ type day09 struct {
 func (d day09) Solve() (string, error) {
 	c, err := cypher.ReadAndExtract(d.fileName, d.idxPreamble)
 	if err != nil {
-	    return err
+	    return "", err
 	}
 
-	noSumValue := c.FindIntruder(d.idxPreamble)
+	noSumValue := c.FindOdd(d.idxPreamble)
 	out := fmt.Sprintf("First number to not respect the rule is: %d ", noSumValue)
 	return out, nil
 }

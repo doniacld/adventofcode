@@ -14,7 +14,7 @@ func TestReadAndExtract(t *testing.T) {
 		output      Cypher
 	}{
 		{"nominal case", "./resources/input-test-small.txt", 2,
-			Cypher{Preamble: Preamble{1: {}, 2: {}}, Numbers: []int{3, 4}},
+			Cypher{Preamble: Preamble{1: {}, 2: {}}, Numbers: []int{1, 2, 3, 4}},
 		}}
 
 	for _, tc := range tt {
