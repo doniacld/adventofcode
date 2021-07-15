@@ -40,7 +40,7 @@ func ComputeTargetSumWithTriplet(expenses []int, target int) int {
 }
 
 
-// Compute the target sum by parsing twice the integer array
+// FindIntruder the target sum by parsing twice the integer array
 // complexity time: O(n²)
 func computeBrutallyTargetSumWithPair(expenses []int, target int) int {
 	for i := 0; i < len(expenses); i++ {
