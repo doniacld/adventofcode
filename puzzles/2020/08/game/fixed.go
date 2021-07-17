@@ -7,22 +7,18 @@ func (ops Operations) ComputeFixedAcc() int {
 	for i := 0; i < len(ops)-1; i++ {
 
 		o := ops[i]
-		tmpOps := ops.ResetOps()
+		tmpOps := ops.DuplicateOps()
 
 		// switch on the nop or jmp to check if the replace is successful
+		if o.value > 1 {
+			continue
+		}
+
 		switch o.name {
 		case nopOp:
-			if o.value == 0 || o.value == 1 {
-			} else {
-				tmpOps.replace(i, jmpOp)
-				break
-			}
+			tmpOps.replace(i, jmpOp)
 		case jmpOp:
-			if o.value == 1 {
-			} else {
-				tmpOps.replace(i, nopOp)
-				break
-			}
+			tmpOps.replace(i, nopOp)
 		}
 
 		// if the game ends at the last instruction, return accCounter
@@ -35,9 +31,9 @@ func (ops Operations) ComputeFixedAcc() int {
 	return 0
 }
 
-func (ops Operations) ResetOps() Operations {
+func (ops Operations) DuplicateOps() Operations {
 	// store the tmp ops for modification
-	tmpOps := make(Operations, len(ops))
+	tmpOps := NewOperations(len(ops))
 	copy(tmpOps, ops)
 	return tmpOps
 }
@@ -48,48 +44,42 @@ func (ops Operations) replace(idx int, newOp string) {
 }
 
 // computeToTheLastOp calculates the accumulator counter depending on operations
-// exit false if the the operation is already seen or the index is not anymore in the range
+// returns false if the  operation is already seen or the index is not in the range anymore
 func (ops Operations) computeToTheLastOp() (bool, int) {
-	i, accCounter := 0, 0
+	currentIdx, nextIdx, accCounter := 0, 0, 0
 
-	for true {
-		o := ops[i]
-		idx := 0
-
+	o := ops[currentIdx]
+	for ; nextIdx != len(ops)-1; o = ops[currentIdx] {
 		switch o.name {
 		case nopOp:
-			idx = ops.nops(i)
+			nextIdx = ops.nops(currentIdx)
 			break
 		case accOp:
-			idx, accCounter = ops.accs(i, accCounter)
+			nextIdx, accCounter = ops.accs(currentIdx, accCounter)
 			break
 		case jmpOp:
-			idx = ops.jumps(i)
+			nextIdx = ops.jumps(currentIdx)
 			break
 		}
 
-		//  positive case
-		if idx == len(ops)-1 {
-			// compute the last value
-			if ops[idx].name == accOp {
-				_, accCounter = ops.accs(idx, accCounter)
-			}
-			return true, accCounter
-		}
-
-		// Operation already seen, this is not normal
-		if ops[idx].seen {
+		// operation already seen, this is not normal
+		if ops[nextIdx].seen {
 			return false, accCounter
 		}
 
-		//idx not in the range anymore
-		if idx < 0 || idx > len(ops)-1 {
+		// nextIdx not in the range anymore
+		if nextIdx < 0 || nextIdx > len(ops)-1 {
 			return false, accCounter
 		}
 
 		// let's continue, Operation is seen and save the index
-		ops[idx].seen = true
-		i = idx
+		ops[nextIdx].seen = true
+		currentIdx = nextIdx
+	}
+
+	// compute the last value
+	if ops[nextIdx].name == accOp {
+		_, accCounter = ops.accs(nextIdx, accCounter)
 	}
 	return true, accCounter
 }

@@ -48,8 +48,6 @@ Run your copy of the boot code. Immediately before any instruction is executed a
 
 Your puzzle answer was 2014.
 
-The first half of this puzzle is complete! It provides one gold star: *
-
 ## Part Two
 
 After some careful analysis, you believe that exactly one instruction is corrupted.

@@ -17,8 +17,8 @@ type Operation struct {
 	seen  bool
 }
 
-func NewOperations() Operations {
-	return make(Operations, 0)
+func NewOperations(len int) Operations {
+	return make(Operations, len)
 }
 
 func NewOperation(name string, value int) Operation {

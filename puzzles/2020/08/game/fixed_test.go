@@ -18,7 +18,7 @@ func TestOperations_ComputeCorruptedAcc(t *testing.T) {
 
 	for _, tc := range tt {
 		t.Run(tc.description, func(t *testing.T) {
-			ops := NewOperations()
+			ops := NewOperations(0)
 			err := filereader.ReadAndExtract(tc.input, func(line string) error {
 				err := ops.ParseLine(line)
 				return err

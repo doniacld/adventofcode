@@ -18,7 +18,7 @@ type day08 struct {
 
 func (d day08) Solve() (string, error) {
 
-	ops := game.NewOperations()
+	ops := game.NewOperations(0)
 	err := filereader.ReadAndExtract(d.fileName, func(line string) error {
 		err := ops.ParseLine(line)
 		return err
@@ -27,10 +27,10 @@ func (d day08) Solve() (string, error) {
 		return "", err
 	}
 	// store the initial ops before any modification by the Part one
-	tmp := ops.ResetOps()
+	part2 := ops.DuplicateOps()
 
 	_, accCounter := ops.ComputeCorruptedAcc()
-	accCounterFixed := tmp.ComputeFixedAcc()
+	accCounterFixed := part2.ComputeFixedAcc()
 	out := fmt.Sprintf("acc value: %d, after fix acc value: %d", accCounter, accCounterFixed)
 
 	return out, nil
