@@ -85,8 +85,4 @@ To find the encryption weakness, add together the smallest and largest number in
 
 What is the encryption weakness in your XMAS-encrypted list of numbers?
 
-Answer:
-
-Although it hasn't changed, you can still get your puzzle input.
-
-You can also [Shareon Twitter Mastodon] this puzzle.
+Your puzzle answer was 238243506.

@@ -12,16 +12,19 @@ func TestCypher_FindOdd(t *testing.T) {
 		input       string
 		idxPreamble int
 		output      int
+		expectedIdx int
 	}{
-		{"nominal case", "./resources/input-test.txt", 5, 127},
+		{"nominal case", "./resources/input-test.txt", 5, 127, 14},
 	}
 
 	for _, tc := range tt {
 		t.Run(tc.description, func(t *testing.T) {
 			c, err := ReadAndExtract(tc.input, tc.idxPreamble)
 			assert.NoError(t, err)
-			v := c.FindOdd(tc.idxPreamble)
+			v, i := c.FindOdd(tc.idxPreamble)
 			assert.Equal(t, tc.output, v)
+			assert.Equal(t, tc.expectedIdx, i)
+
 		})
 	}
 }

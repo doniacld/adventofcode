@@ -5,20 +5,20 @@ import "math"
 // Find the values that is not the sum of two values is the preamble map
 // the map contains the x previous values
 // x is a range that begins at 0 and ends at the given preamble index
-func (c Cypher) FindOdd(idxEndPreamble int) int {
+func (c Cypher) FindOdd(idxEndPreamble int) (int, int) {
 	idxStartPreamble := 0
 	for i := idxEndPreamble; i < len(c.Numbers); i++ {
 
 		elt := c.Numbers[i]
 		if !c.findPair(elt) {
-			return elt
+			return elt, i
 		}
 
 		c.updatePreamble(idxStartPreamble, idxEndPreamble)
 		idxStartPreamble++
 	}
 	// should not happened
-	return 0
+	return 0, 0
 }
 
 // findPair returns the odd value if there is no pair summing it
@@ -44,4 +44,3 @@ func (c Cypher) updatePreamble(idxToRemove, idxPreamble int) {
 	// add the next element
 	c.Preamble[c.Numbers[idxToRemove+idxPreamble]] = struct{}{}
 }
-

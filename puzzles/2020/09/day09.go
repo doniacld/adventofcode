@@ -22,7 +22,8 @@ func (d day09) Solve() (string, error) {
 	    return "", err
 	}
 
-	noSumValue := c.FindOdd(d.idxPreamble)
-	out := fmt.Sprintf("First number to not respect the rule is: %d ", noSumValue)
+	noSumValue, idx := c.FindOdd(d.idxPreamble)
+	sumMinMax := c.FindSum(idx)
+	out := fmt.Sprintf("First number to not respect the rule is: %d at index %d and the sum of the min & max: %d", noSumValue, idx, sumMinMax)
 	return out, nil
 }
