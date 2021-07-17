@@ -278,9 +278,9 @@ omvnxidwzhc
 mzkilcfhudtex
 qrhcdyxvwmzi
 
-i
-i
-i
+currentIdx
+currentIdx
+currentIdx
 
 mrspfekayvo
 fmrysvpkoa
@@ -626,9 +626,9 @@ yjzciltueoshvbkfmdgnwr
 jbswehmkiyvgdnzurotlfc
 xgqrhwsozelnyvudmftbkacji
 
-i
+currentIdx
 cyeti
-i
+currentIdx
 
 gahjt
 thbljy
@@ -924,11 +924,11 @@ x
 rc
 fcr
 
-i
-i
+currentIdx
+currentIdx
 ronsi
-i
-i
+currentIdx
+currentIdx
 
 e
 g
@@ -1534,7 +1534,7 @@ eqmbovwcakngzhpr
 rhwzokanpvqbegmc
 
 w
-i
+currentIdx
 kuen
 vp
 p
@@ -1915,7 +1915,7 @@ oqzlbvtpgca
 bqoeg
 qugbreo
 
-i
+currentIdx
 fd
 mxy
 ebgy
