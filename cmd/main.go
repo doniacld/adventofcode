@@ -15,6 +15,7 @@ import (
 	day0620 "github.com/doniacld/adventofcode/puzzles/2020/06"
 
 	day0121 "github.com/doniacld/adventofcode/puzzles/2021/01"
+	day0221 "github.com/doniacld/adventofcode/puzzles/2021/02"
 
 )
 
@@ -66,6 +67,8 @@ func main() {
 		switch *day {
 		case 1:
 			s = day0121.New("./puzzles/2021/01/input.txt")
+		case 2:
+			s = day0221.New("./puzzles/2021/02/input.txt")
 		}
 	}
 
