@@ -20,7 +20,7 @@ Build the repository:
 
 Run the program for day 1 for example:
 
-    make run 1
+    make run 1 2021
 
 Launch the tests:
 
