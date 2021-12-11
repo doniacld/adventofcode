@@ -16,7 +16,7 @@ import (
 
 	day0121 "github.com/doniacld/adventofcode/puzzles/2021/01"
 	day0221 "github.com/doniacld/adventofcode/puzzles/2021/02"
-
+	day0321 "github.com/doniacld/adventofcode/puzzles/2021/03"
 )
 
 const (
@@ -69,6 +69,8 @@ func main() {
 			s = day0121.New("./puzzles/2021/01/input.txt")
 		case 2:
 			s = day0221.New("./puzzles/2021/02/input.txt")
+		case 3:
+			s = day0321.New("./puzzles/2021/03/input.txt")
 		}
 	}
 
